@@ -1,20 +1,20 @@
 pipeline {
     agent {
-        label "debian-python3"
+        label "slack-agent-linux"
     }
 
     environment {
-        GIT_CREDENTIALS = 'itops-scm-git-token'
+        GIT_CREDENTIALS = 'devops-scm-git-token'
 
-        BASELINE_REPO = 'https://git.ellucian.com/scm/ci/gitops-openstack-autobot-baseline.git'
+        BASELINE_REPO = 'https://github.itops.com/scm/ci/gitops-openstack-autobot-baseline.git'
         BASELINE_BRANCH = 'master'
         BASELINE_CMD = './newconfig.py'
-        OS_AUTH_URL = 'https://iadosvip01.ece.ellucian.com:5000'
-        OS_PROJECT_ID = '7b9b3c86a8ab4a6e9a1cdc8bb07ae190'
-        OS_PROJECT_NAME = 'IT Admin'
-        OS_USER_DOMAIN_NAME = 'Corp'
-        OS_PROJECT_DOMAIN_ID = '4fbe9bec195c4f4c85dbb68d7c529088'
-        OS_REGION_NAME = 'iadprod'
+        OS_AUTH_URL = 'https://dashboard.devops.com:5000'
+        OS_PROJECT_ID = 'project ID'
+        OS_PROJECT_NAME = 'Admin'
+        OS_USER_DOMAIN_NAME = 'Cloud'
+        OS_PROJECT_DOMAIN_ID = 'Project Domain'
+        OS_REGION_NAME = 'us-east-1'
         OS_INTERFACE = 'public'
         OS_IDENTITY_API_VERSION = '3'
 
@@ -22,7 +22,7 @@ pipeline {
          * Slack Utility Repository
          */
         SLACK_DIR = './SLACK'
-        SLACK_REPO = 'https://git.ellucian.com/scm/ita/utility-slack.git'
+        SLACK_REPO = 'https://github.devops.com/scm/ita/utility-slack.git'
         SLACK_BRANCH = 'master'
         SLACK_HEADER_MESSAGE = 'Openstack VM Search Results Summary'
         SLACK_TRAILER_MESSAGE = 'Any closing remarks can go here'
@@ -94,11 +94,11 @@ pipeline {
 
     post {
         success {
-                slackSend channel: 'automation-integration', color: 'good', message: "VM details has been fetched", teamDomain: 'ellucian', tokenCredentialId: '24'
+                slackSend channel: 'automation-integration', color: 'good', message: "VM details has been fetched", teamDomain: 'company-name', tokenCredentialId: '24'
         }
 
         failure {
-                slackSend channel: 'automation-integration', color: 'danger', failOnError: true, message: "Could not find the VM details, check IP address", teamDomain: 'ellucian', tokenCredentialId: '24'
+                slackSend channel: 'automation-integration', color: 'danger', failOnError: true, message: "Could not find the VM details, check IP address", teamDomain: 'company-name', tokenCredentialId: '24'
         }
     }
 }
