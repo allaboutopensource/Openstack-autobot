@@ -10,6 +10,8 @@ clouds.yaml
 config.py	
 
 
+newconfig.py
+
 gitops-openstack-autobot-config consists of the below file : 
 
 jenkins  
