@@ -13,7 +13,7 @@ args = parser.parse_args()
 #openstack.enable_logging(debug=True)
 
 conn2 = conn.connect_as(username = os.environ.get('OS_USERNAME'), password = os.environ.get('OS_PASSWORD'))
-cloud2 = conn.connect_as_project('7b9b3c86a8ab4a6e9a1cdc8bb07ae190')
+cloud2 = conn.connect_as_project('7b9b3xxxxxxxxxxxxxxxxxa6e9a1cdc8bb07ae19000000000000000')
 
 output_file = "result/output.csv"
 #title = "Details are as below"
