@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-#!/usr/bin/python3
 import openstack.cloud
 import argparse
 import re
@@ -11,8 +10,8 @@ parser = argparse.ArgumentParser(description="Enter your IP address", epilog="En
 parser.add_argument('ip_address')
 args = parser.parse_args()
 #openstack.enable_logging(debug=True)
-conn2 = conn.connect_as(username='sunilka', password= os.environ.get('OS_PASSWORD'))
-cloud2 = conn.connect_as_project('7b9b3c86a8ab4a6e9a1cdc8bb07ae190')
+conn2 = conn.connect_as(username='devops', password= os.environ.get('OS_PASSWORD'))
+cloud2 = conn.connect_as_project('7b9b3c86xxxxxxxa1cdc8bb07ae19000000000000')
 
 #validating the Ip address of the vm instance
 
